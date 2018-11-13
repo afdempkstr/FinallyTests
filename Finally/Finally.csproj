@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentCatalog.cs" />
+    <Compile Include="StudentNotEnrolledException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

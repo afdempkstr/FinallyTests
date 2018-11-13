@@ -19,6 +19,16 @@ namespace Finally
 
             cb6part.Remove(new Student("Nick", 5));
 
+            var maria = new Student("Maria", 20);
+            try
+            {
+                maria["C#"] = 10;
+                Console.WriteLine(maria["Python"]);
+            }
+            catch (StudentNotEnrolledException snre)
+            {
+                snre.Student[snre.Lesson] = 0;
+            }
         }
 
         static void PrintList<T>(List<T> list)

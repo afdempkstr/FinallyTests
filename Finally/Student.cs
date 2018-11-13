@@ -25,8 +25,22 @@ namespace Finally
 
         public byte this[string lesson]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get
+            {
+                if (!_grades.ContainsKey(lesson))
+                {
+                    throw new StudentNotEnrolledException(lesson, this);
+                }
+                return _grades[lesson];
+            }
+            set
+            {
+                if (value > 10)
+                {
+                    throw new ArgumentOutOfRangeException("grade", "The grade must be between 0 and 10");
+                }
+                _grades[lesson] = value;
+            }
         }
 
         public Student(string name, int age)

@@ -60,5 +60,14 @@ namespace FinallyTests
             Assert.AreEqual(9, student["Mathematics"]);
         }
 
+        [TestMethod]
+        public void GetGradeThrowsExceptionIfLessonNotFound()
+        {
+            var student = new Student("test", 1);
+            Assert.ThrowsException<StudentNotEnrolledException>(() =>
+            {
+                var grade = student["C#"];
+            });
+        }
     }
 }
