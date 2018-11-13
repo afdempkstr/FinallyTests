@@ -24,12 +24,14 @@ namespace Finally
                 Console.WriteLine(student.Name);
             }
 
-            foreach (var student in cb6part.Where(s => s.Age > 10))
+            foreach (var lesson in cb6part.SelectMany(x => x))
             {
-                // do something
+               //iterate all lessons 
             }
 
-            
+            Console.WriteLine(cb6part.SelectMany(x => x)
+                .Select(lesson => (int)lesson.Grade)
+                .Average());
 
 
                 var maria = new Student("Maria", 20);

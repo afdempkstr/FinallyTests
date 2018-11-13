@@ -79,7 +79,7 @@ namespace Finally
 
         public IEnumerator<Lesson> GetEnumerator()
         {
-            return new StudentLessonEnumerator(_grades);
+            //return new StudentLessonEnumerator(_grades);
 
             //List<Lesson> lessons = new List<Lesson>();
             //foreach (KeyValuePair<string, byte> item in _grades)
@@ -88,10 +88,10 @@ namespace Finally
             //}
             //return lessons.GetEnumerator();
 
-            //return _grades
-            //    .Select(item => new Lesson(item.Key, item.Value))
-            //    .ToList()
-            //    .GetEnumerator();
+            return _grades
+                .Select(item => new Lesson(item.Key, item.Value))
+                .ToList()
+                .GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
