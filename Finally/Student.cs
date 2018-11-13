@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Finally
 {
@@ -78,7 +79,19 @@ namespace Finally
 
         public IEnumerator<Lesson> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new StudentLessonEnumerator(_grades);
+
+            //List<Lesson> lessons = new List<Lesson>();
+            //foreach (KeyValuePair<string, byte> item in _grades)
+            //{
+            //    lessons.Add(new Lesson(item.Key, item.Value));
+            //}
+            //return lessons.GetEnumerator();
+
+            //return _grades
+            //    .Select(item => new Lesson(item.Key, item.Value))
+            //    .ToList()
+            //    .GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
