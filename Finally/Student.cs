@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Finally
 {
-    public class Student
+    public class Student : IEnumerable<Lesson>
     {
         private int _age;
         private Dictionary<string, byte> _grades;
@@ -73,6 +74,16 @@ namespace Finally
 
             var other = (Student)obj;
             return (this.Name == other.Name && this.Age == other.Age);
+        }
+
+        public IEnumerator<Lesson> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
