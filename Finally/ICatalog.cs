@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Finally
 {
-    public interface ICatalog<T>
+    public interface ICatalog<T> : IEnumerable<T>
     {
         int Count { get; }
 

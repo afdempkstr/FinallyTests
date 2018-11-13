@@ -19,7 +19,20 @@ namespace Finally
 
             cb6part.Remove(new Student("Nick", 5));
 
-            var maria = new Student("Maria", 20);
+            foreach (var student in cb6part)
+            {
+                Console.WriteLine(student.Name);
+            }
+
+            foreach (var student in cb6part.Where(s => s.Age > 10))
+            {
+                // do something
+            }
+
+            
+
+
+                var maria = new Student("Maria", 20);
             try
             {
                 maria["C#"] = 10;
@@ -29,6 +42,10 @@ namespace Finally
             {
                 snre.Student[snre.Lesson] = 0;
             }
+
+            
+
+
         }
 
         static void PrintList<T>(List<T> list)

@@ -1,8 +1,5 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finally
 {
@@ -21,6 +18,16 @@ namespace Finally
         public void Remove(Student item)
         {
             _students.Remove(item);
+        }
+
+        public IEnumerator<Student> GetEnumerator()
+        {
+            return _students.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public StudentCatalog()
