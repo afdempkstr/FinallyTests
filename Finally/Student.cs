@@ -1,16 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Finally
 {
     public class Student
     {
-        public string Name { get; set; }
+        private int _age;
+        private Dictionary<string, byte> _grades;
 
-        public int Age { get; set; }
+        public string Name { get; }
+
+        public int Age
+        {
+            get => _age;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException("value", "The age must be greater than 0");
+                }
+                _age = value;
+            }
+        }
+
+        public byte this[string lesson]
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Student(string name, int age)
         {
@@ -19,12 +36,8 @@ namespace Finally
                 throw new ArgumentNullException("name");
             }
             Name = name;
-            
-            if (age <= 0)
-            {
-                throw new ArgumentOutOfRangeException("age", "The age must be greater than 0");
-            }
             Age = age;
+            _grades = new Dictionary<string, byte>();
         }
 
         public override bool Equals(object obj)
