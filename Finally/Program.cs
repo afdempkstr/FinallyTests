@@ -24,17 +24,23 @@ namespace Finally
                 Console.WriteLine(student.Name);
             }
 
-            foreach (var lesson in cb6part.SelectMany(x => x))
+            
+
+            var maria = new Student("Maria", 20);
+            maria["C#"] = 9;
+            maria["Java"] = 0;
+            maria["SQL"] = 7;
+
+            foreach (var lesson in maria.Lessons)
             {
-               //iterate all lessons 
+                Console.WriteLine($"{lesson.Name} : {lesson.Grade}");
             }
 
-            Console.WriteLine(cb6part.SelectMany(x => x)
-                .Select(lesson => (int)lesson.Grade)
-                .Average());
+            foreach (var lesson in maria)
+            {
+                Console.WriteLine($"{lesson.Name} : {lesson.Grade}");
+            }
 
-
-                var maria = new Student("Maria", 20);
             try
             {
                 maria["C#"] = 10;

@@ -77,6 +77,17 @@ namespace Finally
             return (this.Name == other.Name && this.Age == other.Age);
         }
 
+        public IEnumerable<Lesson> Lessons
+        {
+            get
+            {
+                foreach (var lesson in _grades)
+                {
+                    yield return new Lesson(lesson.Key, lesson.Value);
+                }
+            }
+        }
+
         public IEnumerator<Lesson> GetEnumerator()
         {
             //return new StudentLessonEnumerator(_grades);
@@ -88,10 +99,12 @@ namespace Finally
             //}
             //return lessons.GetEnumerator();
 
-            return _grades
-                .Select(item => new Lesson(item.Key, item.Value))
-                .ToList()
-                .GetEnumerator();
+            //return _grades
+            //    .Select(item => new Lesson(item.Key, item.Value))
+            //    .ToList()
+            //    .GetEnumerator();
+
+            return Lessons.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
