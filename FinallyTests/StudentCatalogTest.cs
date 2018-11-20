@@ -58,6 +58,5 @@ namespace FinallyTests
 
             Assert.Equals(0, expected.Count);
         }
-
     }
 }
