@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Finally;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -35,6 +36,27 @@ namespace FinallyTests
             catalog.Add(student);
             catalog.Remove(student);
             Assert.AreEqual(0, catalog.Count);
+        }
+
+        [TestMethod]
+        public void TestStudentCatalogEnumeration()
+        {
+            var catalog = new StudentCatalog();
+            var test = new Student("test", 123);
+            var mary = new Student("mary", 45);
+            catalog.Add(test);
+            catalog.Add(mary);
+
+            var expected = new List<Student>();
+            expected.Add(test);
+            expected.Add(mary);
+
+            foreach (var student in catalog)
+            {
+                Assert.IsTrue(expected.Remove(student));
+            }
+
+            Assert.Equals(0, expected.Count);
         }
 
     }
